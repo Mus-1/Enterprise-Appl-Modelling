@@ -1,0 +1,4 @@
+com\taxcalculator\entities\Taxpayer.class
+com\taxcalculator\repositories\TaxpayerRepository.class
+com\taxcalculator\controllers\TaxpayerController.class
+com\taxcalculator\dao\TaxpayerDao.class

@@ -20,8 +20,11 @@
 		<h1>Calculate Your Taxes with Ease</h1>
 		<h6>Make tax preparation a breeze with our user-friendly tax
 			calculator. Simply input your income and deductions, and our tool
-			will do the rest</h6>
-		<button class="btn btn-primary mt-2">Calculate my taxes now</button>
+			will do the rest</h6><form action="${pageContext.request.contextPath}/taxform" method="GET">			
+			<button class="btn btn-primary mt-2" type="submit" >Calculate my taxes now</button>
+			</form>
+			
+		
 	</div>
 </body>
 <script

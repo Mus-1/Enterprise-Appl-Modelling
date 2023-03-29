@@ -17,39 +17,39 @@ import com.taxcalculator.entities.Taxpayer;
 public class TaxpayerController {
 	@Autowired
 	private TaxpayerDao taxpayerDao;
-	
-	
+
 	@GetMapping("/")
 	public String homePage() {
 		return "home";
 	}
-	
+
 	@GetMapping("/login")
 	public String loginPage() {
 		return "login";
 	}
-		
+
 	@GetMapping("/register")
 	public String registerPage() {
 		return "register";
 	}
-	
+
 	@GetMapping("/profile")
 	public String profilePage(HttpServletRequest request) {
 		Taxpayer taxpayer = (Taxpayer) request.getSession().getAttribute("taxpayer");
-		if(taxpayer==null) {
+		if (taxpayer == null) {
 			return "login";
-		}else {			
+		} else {
 			return "profile";
 		}
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
 		request.getSession().removeAttribute("taxpayer");
 		return "login";
 	}
-	
+
+
 	@PostMapping("/login")
 	public RedirectView loginTaxpayer(@RequestParam("email") String email, @RequestParam("password") String password,
 			HttpServletRequest request, Model model) {
@@ -63,15 +63,16 @@ public class TaxpayerController {
 		}
 		return redirectView;
 	}
-	
+
 	@PostMapping("/register")
-	public RedirectView registerTaxpayer(@ModelAttribute("taxpayer") Taxpayer taxpayer, BindingResult result, HttpServletRequest request) {
-	    
+	public RedirectView registerTaxpayer(@ModelAttribute("taxpayer") Taxpayer taxpayer, BindingResult result,
+			HttpServletRequest request) {
+
 		this.taxpayerDao.saveTaxpayer(taxpayer);
-	    // Save taxpayer object to database
-	    RedirectView redirectView = new RedirectView();
-	    redirectView.setUrl(request.getContextPath() + "/login");
-	    return redirectView;
+		// Save taxpayer object to database
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl(request.getContextPath() + "/login");
+		return redirectView;
 	}
 
 }
