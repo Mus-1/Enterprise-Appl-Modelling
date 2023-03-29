@@ -12,7 +12,7 @@ public class TaxpayerDao {
 	private TaxpayerRepository taxpayerRepository;
 	
 	public Taxpayer findById(Integer id) {
-		return this.taxpayerRepository.findById(id).orElseThrow(()->new RuntimeException("User not found!"));
+		return this.taxpayerRepository.findById(id).orElseThrow(()->new RuntimeException("Taxpayer not found!"));
 	}
 
 	public Taxpayer findByEmailAndPassword(String email, String password) {
@@ -24,7 +24,7 @@ public class TaxpayerDao {
 	}
 	
 	public Taxpayer updateTaxpayer(Taxpayer taxpayer, Integer id) {
-		this.taxpayerRepository.findById(id).orElseThrow(()->new RuntimeException("User not found!"));
+		this.taxpayerRepository.findById(id).orElseThrow(()->new RuntimeException("Taxpayer not found!"));
 		return this.taxpayerRepository.save(taxpayer);
 	}
 	

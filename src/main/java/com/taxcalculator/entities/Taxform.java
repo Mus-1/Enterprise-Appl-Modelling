@@ -1,15 +1,17 @@
 package com.taxcalculator.entities;
 
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "taxform")
+@Table(name = "tax_form")
 public class Taxform {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +29,8 @@ public class Taxform {
 	private double income_taxes_paid;
 	private double total_rrsp;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@CreationTimestamp
+	@Column(name = "tax_filing_date", nullable = false, updatable = false)
 	private Date tax_filing_date;
 	public Taxform() {
 		super();

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
@@ -24,8 +24,39 @@
 				${sessionScope.taxpayer.lname}</p>
 			<p>Email: ${sessionScope.taxpayer.email}</p>
 			<p>Gender: ${sessionScope.taxpayer.gender}</p>
-			<p>Date of Birth: <fmt:formatDate value="${sessionScope.taxpayer.dob}" pattern="dd MMMM yyyy"/></p>
+			<p>
+				Date of Birth:
+				<fmt:formatDate value="${sessionScope.taxpayer.dob}"
+					pattern="dd MMMM yyyy" />
+			</p>
 			<p>Phone: ${sessionScope.taxpayer.phone}</p>
+		</div>
+		<div>
+			<h2>Tax Reports</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">S. No.</th>
+						<th scope="col">Year</th>
+						<th scope="col">Province</th>
+						<th scope="col">Total Tax</th>
+						<th scope="col">Report Date</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td>@mdo</td>
+						<td>@mdo</td>
+						<td>
+							<button class="btn btn-primary">View Details</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </body>

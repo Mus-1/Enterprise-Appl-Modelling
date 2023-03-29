@@ -19,6 +19,10 @@
 					<li class="nav-item"><a class="nav-link"
 						href="${pageContext.request.contextPath}/profile">Profile</a></li>
 					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/taxform">Tax Form</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/reviews">Reviews</a></li>
+					<li class="nav-item"><a class="nav-link"
 						href="${pageContext.request.contextPath}/logout">Logout</a></li>
 				</c:if>
 			</ul>

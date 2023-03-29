@@ -1,32 +1,23 @@
 package com.taxcalculator.dao;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.taxcalculator.entities.Taxform;
-import com.taxcalculator.repositories.TaxformRepository;
+import com.taxcalculator.entities.TaxCalculation;
+import com.taxcalculator.repositories.TaxCalculationRepository;
 
 @Service
 public class TaxCalculationDao {
-	@Autowired
-	private TaxformRepository taxformRepository;
-	
-	public Taxform findById(Integer id) {
-		return this.taxformRepository.findById(id).orElseThrow(()->new RuntimeException("User not found!"));
-	}
 
-//	public Taxform findByEmailAndPassword(String email, String password) {
-//		return this.taxformRepository.findByEmailAndPassword(email, password);
-//	}
+	@Autowired
+	private TaxCalculationRepository taxCalculationRepository;
 	
-	public Taxform saveTaxform(Taxform taxform) {
-		return this.taxformRepository.save(taxform);
+	// get by form id
+	public TaxCalculation getTaxCalculationByFormId(int form_id) {
+		return this.taxCalculationRepository.findByFormId(form_id);
 	}
 	
-	public Taxform updateTaxform(Taxform taxform, Integer id) {
-		this.taxformRepository.findById(id).orElseThrow(()->new RuntimeException("User not found!"));
-		return this.taxformRepository.save(taxform);
-	}
-	
-	
+	// create
+	public TaxCalculation addTaxCalculation(TaxCalculation taxCalculation) {
+		return this.taxCalculationRepository.save(taxCalculation);
+	}	
 }

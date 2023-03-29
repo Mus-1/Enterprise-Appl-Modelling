@@ -10,19 +10,17 @@ import com.taxcalculator.repositories.TaxformRepository;
 public class TaxformDao {
 	@Autowired
 	private TaxformRepository taxformRepository;
-	
+
 	public Taxform findById(Integer id) {
-		return this.taxformRepository.findById(id).orElseThrow(()->new RuntimeException("User not found!"));
+		return this.taxformRepository.findById(id).orElseThrow(() -> new RuntimeException("Form not found!"));
 	}
-	
+
 	public Taxform saveTaxform(Taxform taxform) {
 		return this.taxformRepository.save(taxform);
 	}
-	
+
 	public Taxform updateTaxform(Taxform taxform, Integer id) {
-		this.taxformRepository.findById(id).orElseThrow(()->new RuntimeException("User not found!"));
+		this.taxformRepository.findById(id).orElseThrow(() -> new RuntimeException("Form not found!"));
 		return this.taxformRepository.save(taxform);
 	}
-	
-	
 }

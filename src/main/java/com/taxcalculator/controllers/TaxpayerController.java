@@ -39,6 +39,9 @@ public class TaxpayerController {
 		if (taxpayer == null) {
 			return "login";
 		} else {
+			// make request to get report details
+//			select tf.form_id,tf.year,tf.province,tc.total_tax, tf.tax_filing_date from tax_form tf join tax_calculation tc on tf.form_id=tc.form_id
+//					where tf.taxpayer_id=1
 			return "profile";
 		}
 	}
@@ -49,7 +52,6 @@ public class TaxpayerController {
 		return "login";
 	}
 
-
 	@PostMapping("/login")
 	public RedirectView loginTaxpayer(@RequestParam("email") String email, @RequestParam("password") String password,
 			HttpServletRequest request, Model model) {
@@ -57,7 +59,7 @@ public class TaxpayerController {
 		RedirectView redirectView = new RedirectView();
 		if (taxpayer != null) {
 			request.getSession().setAttribute("taxpayer", taxpayer);
-			redirectView.setUrl(request.getContextPath() + "/profile");
+			redirectView.setUrl(request.getContextPath() + "/");
 		} else {
 			redirectView.setUrl(request.getContextPath() + "/login");
 		}
