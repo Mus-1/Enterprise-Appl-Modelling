@@ -1,10 +1,10 @@
-package com.taxcalculator.dao;
+package com.taxcalculator.mu.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.taxcalculator.entities.Taxform;
-import com.taxcalculator.repositories.TaxformRepository;
+import com.taxcalculator.mu.entities.Taxform;
+import com.taxcalculator.mu.repositories.TaxformRepository;
 
 @Service
 public class TaxformDao {

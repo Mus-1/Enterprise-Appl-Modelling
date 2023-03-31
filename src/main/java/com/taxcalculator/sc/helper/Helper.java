@@ -1,7 +1,8 @@
 package com.taxcalculator.sc.helper;
 
 import java.util.List;
-import com.taxcalculator.entities.TaxBracket;
+
+import com.taxcalculator.sc.entities.TaxBracket;
 
 public class Helper {
 	public static double calculateTax(double total_income, List<TaxBracket> taxBrackets) {

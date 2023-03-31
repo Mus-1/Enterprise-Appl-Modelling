@@ -1,12 +1,12 @@
-package com.taxcalculator.dao;
+package com.taxcalculator.sc.dao;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.taxcalculator.entities.TaxBracket;
-import com.taxcalculator.repositories.TaxBracketRepository;
+import com.taxcalculator.sc.entities.TaxBracket;
+import com.taxcalculator.sc.repositories.TaxBracketRepository;
 
 @Service
 public class TaxBracketDao {

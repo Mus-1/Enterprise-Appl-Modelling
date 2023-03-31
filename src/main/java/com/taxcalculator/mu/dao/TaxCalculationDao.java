@@ -1,9 +1,9 @@
-package com.taxcalculator.dao;
+package com.taxcalculator.mu.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.taxcalculator.entities.TaxCalculation;
-import com.taxcalculator.repositories.TaxCalculationRepository;
+import com.taxcalculator.mu.entities.TaxCalculation;
+import com.taxcalculator.mu.repositories.TaxCalculationRepository;
 
 @Service
 public class TaxCalculationDao {

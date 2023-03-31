@@ -1,4 +1,4 @@
-package com.taxcalculator.repositories;
+package com.taxcalculator.sc.repositories;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.taxcalculator.entities.TaxBracket;
+import com.taxcalculator.sc.entities.TaxBracket;
 
 @Repository
 public interface TaxBracketRepository extends JpaRepository<TaxBracket, Integer> {

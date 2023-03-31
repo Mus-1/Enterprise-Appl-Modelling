@@ -1,10 +1,10 @@
-package com.taxcalculator.dao;
+package com.taxcalculator.sc.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.taxcalculator.entities.Taxpayer;
-import com.taxcalculator.repositories.TaxpayerRepository;
+import com.taxcalculator.sc.entities.Taxpayer;
+import com.taxcalculator.sc.repositories.TaxpayerRepository;
 
 @Service
 public class TaxpayerDao {

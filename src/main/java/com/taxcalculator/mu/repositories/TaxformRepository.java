@@ -1,8 +1,9 @@
-package com.taxcalculator.repositories;
+package com.taxcalculator.mu.repositories;
 
 import org.springframework.stereotype.Repository;
 
-import com.taxcalculator.entities.Taxform;
+import com.taxcalculator.mu.entities.Taxform;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository

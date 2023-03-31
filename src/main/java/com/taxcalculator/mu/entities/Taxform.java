@@ -1,4 +1,4 @@
-package com.taxcalculator.entities;
+package com.taxcalculator.mu.entities;
 
 import java.util.Date;
 

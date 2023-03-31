@@ -1,4 +1,4 @@
-package com.taxcalculator.entities;
+package com.taxcalculator.sc.entities;
 
 import java.util.Date;
 import javax.persistence.Entity;

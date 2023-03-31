@@ -1,4 +1,4 @@
-package com.taxcalculator.controllers;
+package com.taxcalculator.sc.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-import com.taxcalculator.dao.TaxpayerDao;
-import com.taxcalculator.entities.Taxpayer;
+
+import com.taxcalculator.sc.dao.TaxpayerDao;
+import com.taxcalculator.sc.entities.Taxpayer;
 
 @Controller
 public class TaxpayerController {

@@ -1,4 +1,4 @@
-package com.taxcalculator.entities;
+package com.taxcalculator.mu.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

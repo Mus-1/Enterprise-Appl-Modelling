@@ -1,11 +1,11 @@
-package com.taxcalculator.repositories;
+package com.taxcalculator.mu.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.taxcalculator.entities.TaxCalculation;
+import com.taxcalculator.mu.entities.TaxCalculation;
 
 @Repository
 public interface TaxCalculationRepository extends JpaRepository<TaxCalculation, Integer>{

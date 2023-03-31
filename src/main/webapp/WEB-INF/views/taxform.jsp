@@ -22,14 +22,12 @@
 		<form class="row g-3"
 			action="${pageContext.request.contextPath}/taxform" method="POST">
 			<div class="col-md-6">
-				<input
-					type="hidden" class="form-control" id="taxpayer_id"
+				<input type="hidden" class="form-control" id="taxpayer_id"
 					name="taxpayer_id" value=${sessionScope.taxpayer.taxpayer_id}>
 			</div>
 			<div class="col-md-12">
-				<label for="year" class="form-label">Year</label> 
-				<select name="year" id="year"
-					class="form-select mb-3">
+				<label for="year" class="form-label">Year</label> <select
+					name="year" id="year" class="form-select mb-3">
 					<option value="2022">2022</option>
 					<option value="2023">2023</option>
 				</select>
@@ -43,9 +41,8 @@
 					class="form-control" id="city" name="city">
 			</div>
 			<div class="col-md-6">
-				<label for="province" class="form-label">Province
-					</label> <select name="province" id="province"
-					class="form-select mb-3">
+				<label for="province" class="form-label">Province </label> <select
+					name="province" id="province" class="form-select mb-3">
 					<option value="ON">Ontario</option>
 					<option value="AB">Alberta</option>
 					<option value="BC">British Columbia</option>
@@ -77,30 +74,35 @@
 				</select>
 			</div>
 			<div class="col-md-6">
-				<label for="employment_income" class="form-label">Employment income</label> <input
-					type="text" class="form-control" id="employment_income" name="employment_income">
+				<label for="employment_income" class="form-label">Employment
+					income</label> <input type="text" class="form-control"
+					id="employment_income" name="employment_income">
 			</div>
 			<div class="col-md-6">
 				<label for="other_income" class="form-label">Other income</label> <input
-					type="text" class="form-control" id="other_income" name="other_income">
+					type="text" class="form-control" id="other_income"
+					name="other_income">
 			</div>
 			<div class="col-md-12">
-				<label for="capital_gains_losses" class="form-label">Capital gains or losses</label> <input
-					type="text" class="form-control" id="capital_gains_losses" name="capital_gains_losses">
-					<small class="text-primary">Please enter income in negative if you incurred loss</small>
+				<label for="capital_gains_losses" class="form-label">Capital
+					gains or losses</label> <input type="text" class="form-control"
+					id="capital_gains_losses" name="capital_gains_losses"> <small
+					class="text-primary">Please enter income in negative if you
+					incurred loss</small>
 			</div>
-			<div class="col-md-12">
-				<label for="income_taxes_paid" class="form-label">Income taxes paid</label> <input
-					type="text" class="form-control" id="income_taxes_paid" name="income_taxes_paid">
+			<div class="col-md-6">
+				<label for="income_taxes_paid" class="form-label">Income
+					taxes paid</label> <input type="text" class="form-control"
+					id="income_taxes_paid" name="income_taxes_paid">
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<label for="total_rrsp" class="form-label">Total RRSP</label> <input
 					type="text" class="form-control" id="total_rrsp" name="total_rrsp">
 			</div>
 			<div class="col-md-4 mb-3">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
-			
+
 		</form>
 	</div>
 </body>
