@@ -45,16 +45,23 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>@mdo</td>
-						<td>
-							<button class="btn btn-primary">View Details</button>
-						</td>
-					</tr>
+					<c:forEach var="formCalculation" items="${formCalculations}"
+						varStatus="status">
+						<tr>
+							<td>${status.index + 1}</td>
+							<td>${formCalculation.form.year}</td>
+							<td>${formCalculation.form.province}</td>
+							<td><fmt:formatNumber
+									value="${formCalculation.calculation.total_tax}"
+									minFractionDigits="2" maxFractionDigits="2" /></td>
+							<td><fmt:formatDate
+									value="${formCalculation.form.tax_filing_date}"
+									pattern="MM/dd/yyyy" /></td>
+							<td>
+								<button class="btn btn-primary">View Details</button>
+							</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

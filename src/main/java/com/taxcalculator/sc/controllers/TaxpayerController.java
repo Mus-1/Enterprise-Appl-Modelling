@@ -1,5 +1,10 @@
 package com.taxcalculator.sc.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.taxcalculator.mu.dao.TaxCalculationDao;
+import com.taxcalculator.mu.dao.TaxformDao;
+import com.taxcalculator.mu.entities.TaxCalculation;
+import com.taxcalculator.mu.entities.Taxform;
 import com.taxcalculator.sc.dao.TaxpayerDao;
 import com.taxcalculator.sc.entities.Taxpayer;
 
@@ -19,6 +28,12 @@ public class TaxpayerController {
 	@Autowired
 	private TaxpayerDao taxpayerDao;
 
+	@Autowired
+	private TaxformDao taxFormDao;
+	
+	@Autowired
+	private TaxCalculationDao taxCalculationDao;
+	
 	@GetMapping("/")
 	public String homePage() {
 		return "home";
@@ -35,14 +50,23 @@ public class TaxpayerController {
 	}
 
 	@GetMapping("/profile")
-	public String profilePage(HttpServletRequest request) {
+	public String profilePage(HttpServletRequest request, Model model) {
 		Taxpayer taxpayer = (Taxpayer) request.getSession().getAttribute("taxpayer");
 		if (taxpayer == null) {
 			return "login";
 		} else {
-			// make request to get report details
-//			select tf.form_id,tf.year,tf.province,tc.total_tax, tf.tax_filing_date from tax_form tf join tax_calculation tc on tf.form_id=tc.form_id
-//					where tf.taxpayer_id=1
+			List<Taxform> forms=this.taxFormDao.getTaxFormByTaxpayerId(taxpayer.getTaxpayer_id());
+			List<Map<String, Object>> formCalculations = new ArrayList<>();
+			for (Taxform form : forms) {
+			    TaxCalculation calculation = this.taxCalculationDao.getTaxCalculationByFormId(form.getForm_id());
+			    
+			    Map<String, Object> formCalculation = new HashMap<>();
+			    formCalculation.put("form", form);
+			    formCalculation.put("calculation", calculation);
+			    formCalculations.add(formCalculation);
+			}
+			
+			model.addAttribute("formCalculations",formCalculations);
 			return "profile";
 		}
 	}
