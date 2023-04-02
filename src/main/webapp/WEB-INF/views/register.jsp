@@ -49,11 +49,17 @@
 				<label for="dob" class="form-label">Date of Birth</label> <input
 					type="date" class="form-control" id="dob" name="dob">
 			</div>
-			<div class="col-md-12">
-				<label for="phone" class="form-label">Phone</label> <input
-					type="text" class="form-control" id="phone" name="phone" maxlength="10">
+			<div class="col-md-6">
+				<label for="sin" class="form-label">Social Insurance Number (SIN)</label> <input
+					type="text" class="form-control" id="sin" name="sin"
+					maxlength="9">
 			</div>
-			
+			<div class="col-md-6">
+				<label for="phone" class="form-label">Phone</label> <input
+					type="text" class="form-control" id="phone" name="phone"
+					maxlength="10">
+			</div>
+
 			<div class="col-md-4">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>

@@ -23,6 +23,9 @@ import com.taxcalculator.sc.helper.Helper;
 
 @Controller
 public class TaxformController {
+
+	private static final double BASIC_PERSONAL_AMOUNT = 14398;
+
 	@Autowired
 	private TaxformDao taxformDao;
 
@@ -42,6 +45,15 @@ public class TaxformController {
 		}
 	}
 
+	@GetMapping("/form/{formId}")
+	public String formDetailsPage(@PathVariable("formId") int formId, Model model) {
+		Taxform taxform = this.taxformDao.findById(formId);
+		TaxCalculation taxCalculation = this.taxCalculationDao.getTaxCalculationByFormId(formId);
+		model.addAttribute("taxform", taxform);
+		model.addAttribute("taxCalculation", taxCalculation);
+		return "form-details";
+	}
+
 	@GetMapping("/form/result/{formId}")
 	public String getFormResult(@PathVariable int formId, Model model) {
 		TaxCalculation taxCalculation = this.taxCalculationDao.getTaxCalculationByFormId(formId);
@@ -54,7 +66,8 @@ public class TaxformController {
 			Model model) {
 
 		double total_income = taxform.getEmployment_income() + taxform.getOther_income()
-				+ taxform.getCapital_gains_losses() - taxform.getTotal_rrsp();
+				+ taxform.getCapital_gains_losses() - taxform.getTotal_rrsp() - taxform.getCpp() - taxform.getEi()
+				- BASIC_PERSONAL_AMOUNT;
 
 		List<TaxBracket> provincialBrackets = this.taxBracketDao.getProvincialTaxBracketByIncome(total_income,
 				taxform.getProvince(), Integer.toString(taxform.getYear()));
@@ -79,7 +92,7 @@ public class TaxformController {
 		this.taxCalculationDao.addTaxCalculation(taxCalculation);
 
 		RedirectView redirectView = new RedirectView();
-		redirectView.setUrl(request.getContextPath() + "/form/result/"+taxform.getForm_id());
+		redirectView.setUrl(request.getContextPath() + "/form/result/" + taxform.getForm_id());
 		return redirectView;
 	}
 }

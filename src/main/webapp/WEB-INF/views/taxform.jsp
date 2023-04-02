@@ -91,6 +91,14 @@
 					incurred loss</small>
 			</div>
 			<div class="col-md-6">
+				<label for="cpp" class="form-label">CPP</label> <input type="text" class="form-control"
+					id="cpp" name="cpp">
+			</div>
+			<div class="col-md-6">
+				<label for="ei" class="form-label">Employment Insurance (EI)</label> <input type="text" class="form-control"
+					id="ei" name="ei">
+			</div>			
+			<div class="col-md-6">
 				<label for="income_taxes_paid" class="form-label">Income
 					taxes paid</label> <input type="text" class="form-control"
 					id="income_taxes_paid" name="income_taxes_paid">

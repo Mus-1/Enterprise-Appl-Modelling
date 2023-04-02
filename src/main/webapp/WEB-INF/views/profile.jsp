@@ -57,9 +57,9 @@
 							<td><fmt:formatDate
 									value="${formCalculation.form.tax_filing_date}"
 									pattern="MM/dd/yyyy" /></td>
-							<td>
-								<button class="btn btn-primary">View Details</button>
-							</td>
+							<td><a class="btn btn-primary"
+								href="${pageContext.request.contextPath}/form/${formCalculation.form.form_id}">View
+									Details</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
